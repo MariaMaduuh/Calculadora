@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        * {
+            font-family: 'Roboto';
+            color: #5f6e5f;
+        }
+
+        body {
+            background-color: #acc4ac;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 50px;
+            
+            
+        }
+        form {
+            border: 2px solid #5f6e5f;
+            
+            
+        }
+
+        button {
+            color: #5f6e5f;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Operações Matemáticas</h1>
+    </header>
+    <main>
+        <section>
+            <form>
+                <div>
+                    <label>Número 1</label>
+                    <input type="text" name="n1" id="n1">
+                </div>
+                <div>
+                    <label>Operacão</label>
+                    <input type="text" name="operacao" id="operacao">
+                </div>
+
+                <div>
+                    <label>Número 2</label>
+                    <input type="text" name="n2" id="n2">
+                </div>
+                <div>
+                    <button id="btnCalculo" type="button">Calcular</button>
+                </div>
+                <div>
+                    <input type="text" name="resultado" id="resultado">
+                </div>
+            </form>
+
+
+        </section>
+    </main>
+    <script>
+
+
+        var btn;
+
+        btn = document.getElementById("btnCalculo");
+
+        btn.addEventListener("click", validarClick);
+
+        // Soma
+        function validarClick() {
+            var n1, n2, resultado, operacao;
+
+
+            n1 = document.getElementById("n1");
+            n2 = document.getElementById("n2");
+            resultado = document.getElementById("resultado");
+            operacao = document.getElementById("operacao"); 
+
+            n1 = Number.parseFloat(n1.value);
+            n2 = Number.parseFloat(n2.value);
+
+            if (operacao.value == "somar") {
+            calculo = somar(n1, n2);
+            }
+            else if (operacao.value == "subtrair") {
+                calculo = subtrair(n1, n2);
+            }
+            else if (operacao.value == "multiplicar") {
+                calculo = multiplicar(n1, n2);
+            }
+            else if (operacao.value == "dividir") {
+                calculo = dividir(n1, n2);
+            }
+            else  {
+                alert ("Operação Inválida!");
+            }
+
+            
+            resultado.value = calculo;
+
+        }
+        function somar(n1, n2) {
+            var somar = n1 + n2;
+            return somar;
+        }
+
+
+
+        function subtrair(n1, n2) {
+            var subtrair = n1 - n2;
+            return subtrair;
+        }
+
+
+        function multiplicar(n1, n2) {
+            var multiplicacao = n1 * n2;
+            return multiplicacao;
+        }
+
+
+        function dividir(n1, n2) {
+            var dividir = n1 / n2;
+            return dividir;
+        }
+
+    </script>
+</body>
+
+</html>
